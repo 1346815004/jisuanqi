@@ -14,7 +14,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     Button btn_0,btn_1,btn_2,btn_3,btn_4,btn_5,btn_6,btn_7,btn_8,btn_9,btn_jia,btn_jian,btn_cheng,btn_chu,btn_dian,btn_kuohao1,btn_kuohao2,btn_deng,btn_c
-            ,btn_tui;
+            ,btn_tui,btn_sin,btn_cos,btn_tan,btn_bangzhu,btn_cdhuansuan,btn_tjhuansuan,btn_jzhuansuan;
     TextView tv_xianshi;
 
     @Override
@@ -43,6 +43,14 @@ public class MainActivity extends AppCompatActivity {
         btn_kuohao1 = findViewById(R.id.btn_kuohao1);
         btn_kuohao2 = findViewById(R.id.btn_kuohao2);
         btn_tui = findViewById(R.id.btn_tui);
+        btn_sin = findViewById(R.id.btn_sin);
+        btn_cos = findViewById(R.id.btn_cos);
+        btn_tan = findViewById(R.id.btn_tan);
+        btn_bangzhu = findViewById(R.id.btn_bangzhu);
+        btn_cdhuansuan = findViewById(R.id.btn_cdhuansuan);
+        btn_tjhuansuan = findViewById(R.id.btn_tjhuansuan);
+        btn_jzhuansuan = findViewById(R.id.btn_jzhuansuan);
+
 
         onClick o = new onClick();
         btn_0.setOnClickListener(o);
@@ -65,8 +73,13 @@ public class MainActivity extends AppCompatActivity {
         btn_kuohao1.setOnClickListener(o);
         btn_kuohao2.setOnClickListener(o);
         btn_tui.setOnClickListener(o);
-
-
+        btn_sin.setOnClickListener(o);
+        btn_cos.setOnClickListener(o);
+        btn_tan.setOnClickListener(o);
+        btn_bangzhu.setOnClickListener(o);
+        btn_cdhuansuan.setOnClickListener(o);
+        btn_tjhuansuan.setOnClickListener(o);
+        btn_jzhuansuan.setOnClickListener(o);
 
 
     }
@@ -79,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
             if(s1.equals("0"))
                 s1 = "";
             String s2 = null;
+            Intent intent;
             switch (v.getId()){
                 case R.id.btn_0:
                     s2 = "0";
@@ -137,7 +151,10 @@ public class MainActivity extends AppCompatActivity {
                     tv_xianshi.setText(s1+s2);
                     break;
                 case R.id.btn_dian:
-                    s2 = ".";
+                    if(s1.equals(""))
+                        s2 = "0.";
+                    else
+                        s2 = ".";
                     tv_xianshi.setText(s1+s2);
                     break;
                 case R.id.btn_deng:
@@ -161,6 +178,50 @@ public class MainActivity extends AppCompatActivity {
                     else
                         tv_xianshi.setText("0");
                     break;
+                case R.id.btn_sin:
+                    try {
+                        double a = Math.toRadians(Double.parseDouble(s1));
+                        s1 = Math.sin(a) +"";
+                        tv_xianshi.setText(s1);
+                    } catch (Exception e){
+                        tv_xianshi.setText("错误 ^^");
+                    }
+                    break;
+                case R.id.btn_cos:
+                    try {
+                        double a = Math.toRadians(Double.parseDouble(s1));
+                        s1 = Math.cos(a) +"";
+                        tv_xianshi.setText(s1);
+                    } catch (Exception e){
+                        tv_xianshi.setText("错误 ^^");
+                    }
+                    break;
+                case R.id.btn_tan:
+                    try {
+                        double a = Math.toRadians(Double.parseDouble(s1));
+                        s1 = Math.tan(a) +"";
+                        tv_xianshi.setText(s1);
+                    } catch (Exception e){
+                        tv_xianshi.setText("错误 ^^");
+                    }
+                    break;
+                case R.id.btn_bangzhu:
+//                    Toast.makeText(MainActivity.this,"叮！",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,"你感觉受到了帮助",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(MainActivity.this,"智力+1",Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.btn_cdhuansuan:
+                    intent = new Intent(MainActivity.this,cdhuansuan.class);
+                    startActivity(intent);
+                    break;
+                case R.id.btn_tjhuansuan:
+                    intent = new Intent(MainActivity.this,tjhuansuan.class);
+                    startActivity(intent);
+                    break;
+                case R.id.btn_jzhuansuan:
+                    intent = new Intent(MainActivity.this,jzhuansuan.class);
+                    startActivity(intent);
+                    break;
             }
 
         }
@@ -173,38 +234,24 @@ public class MainActivity extends AppCompatActivity {
             Boolean b1 = false;
 
 try {
-         if (s.indexOf(".") != -1) {
+         if (s.indexOf(".") != -1 || s.indexOf("÷") != -1) {
              b1 = true;
          }
-//         if(s.indexOf("(") != -1 && s.indexOf(")") != -1){
-//             s1 = s.substring(0, s.indexOf("("));
-//             s2 = s.substring(s.indexOf("(")+1, s.indexOf(")"));
-//             String s3 = s.substring(s.indexOf(")") + 1);
-//             s2 = digui(s2);
-//             digui(s1+s2+s3);
-//
-//         }
-
-
-            if (s.indexOf("×") != -1) {
-                s1 = s.substring(0, s.indexOf("×"));
-                s2 = s.substring(s.indexOf("×") + 1);
-                if (!b1)
-                    i1 = Integer.parseInt(s1) * Integer.parseInt(s2);
-                else
-                    d1 = Double.parseDouble(s1) * Double.parseDouble(s2);
-            } else if (s.indexOf("÷") != -1) {
-                s1 = s.substring(0, s.indexOf("÷"));
-                s2 = s.substring(s.indexOf("÷") + 1);
-                if (!b1)
-                    i1 = Integer.parseInt(s1) / Integer.parseInt(s2);
-                else
-                    d1 = Double.parseDouble(s1) / Double.parseDouble(s2);
-            } else if (s.indexOf("+") != -1) {
+         if(s.indexOf("(") != -1 && s.indexOf(")") != -1){
+             s1 = s.substring(0, s.indexOf("("));
+             s2 = s.substring(s.indexOf("(")+1, s.indexOf(")"));
+             String s3 = s.substring(s.indexOf(")") + 1);
+             s2 = digui(s2);
+             return digui(s1+s2+s3)+"";
+         }else if (s.indexOf("+") != -1) {
                 s1 = s.substring(0, s.indexOf("+"));
                 s2 = s.substring(s.indexOf("+") + 1);
+                Log.d("jisuan1: ", "?+s1:"+s1);
+                Log.d("jisuan1: ", "?+s2:"+s2);
                 s1 = digui(s1);
                 s2 = digui(s2);
+                Log.d("jisuan1: ", "+s1:"+s1);
+                Log.d("jisuan1: ", "+s2:"+s2);
                 if (!b1)
                     i1 = Integer.parseInt(s1) + Integer.parseInt(s2);
                 else
@@ -212,14 +259,42 @@ try {
             } else if (s.indexOf("-") != -1  && s.indexOf("-") != 0) {
                 s1 = s.substring(0, s.indexOf("-"));
                 s2 = s.substring(s.indexOf("-") + 1);
-                if(!s1.equals("")){
-                    s1 = digui(s1);
-                    s2 = digui(s2);
-                }
+                Log.d("jisuan1: ", "?-s1:"+s1);
+                Log.d("jisuan1: ", "?-s2:"+s2);
+                s1 = digui(s1);
+                s2 = digui(s2);
+                Log.d("jisuan1: ", "-s1:"+s1);
+                Log.d("jisuan1: ", "-s2:"+s2);
                 if (!b1)
                     i1 = Integer.parseInt(s1) - Integer.parseInt(s2);
                 else
                     d1 = Double.parseDouble(s1) - Double.parseDouble(s2);
+            }else if (s.indexOf("×") != -1 && s.indexOf("×") != 0) {
+                s1 = s.substring(0, s.indexOf("×"));
+                s2 = s.substring(s.indexOf("×") + 1);
+                Log.d("jisuan1: ", "?*s1:"+s1);
+                Log.d("jisuan1: ", "?*s2:"+s2);
+                s1 = digui(s1);
+                s2 = digui(s2);
+                Log.d("jisuan1: ", "*s1:"+s1);
+                Log.d("jisuan1: ", "*s2:"+s2);
+                if (!b1)
+                    i1 = Integer.parseInt(s1) * Integer.parseInt(s2);
+                else
+                    d1 = Double.parseDouble(s1) * Double.parseDouble(s2);
+            } else if (s.indexOf("÷") != -1 && s.indexOf("÷") != 0) {
+                s1 = s.substring(0, s.indexOf("÷"));
+                s2 = s.substring(s.indexOf("÷") + 1);
+                Log.d("jisuan1: ", "?/s1:"+s1);
+                Log.d("jisuan1: ", "?/s2:"+s2);
+                s1 = digui(s1);
+                s2 = digui(s2);
+                Log.d("jisuan1: ", "/s1:"+s1);
+                Log.d("jisuan1: ", "/s2:"+s2);
+                if (!b1)
+                    i1 = Integer.parseInt(s1) / Integer.parseInt(s2);
+                else
+                    d1 = Double.parseDouble(s1) / Double.parseDouble(s2);
             }
 
             if(!b1)
@@ -227,19 +302,24 @@ try {
             else
                 s = d1 + "";
 } catch (Exception e) {
-    return "错误";
+    return "错误 ^^";
 }
             return s;
         }
 
         public String digui(String s){
-            if(s.indexOf("+") != -1 ) {
+            if(s.indexOf("×") != -1  && s.indexOf("×") != 0) {
+                s = jisuan(s);
+            }else if(s.indexOf("÷") != -1 && s.indexOf("÷") != 0){
+                s = jisuan(s);
+            } else if(s.indexOf("+") != -1 ) {
                 s = jisuan(s);
             }else if(s.indexOf("-") != -1 && s.indexOf("-") != 0){
                 s = jisuan(s);
             }
             return s;
         }
+
 
     }
 }

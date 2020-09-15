@@ -17,17 +17,59 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp">
-            <TextView
-                android:maxLines="1"
-                android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_weight="3"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="0"
-                android:textSize="40sp"
-                android:id="@+id/tv_xianshi"
+                android:orientation="vertical">
+                <TextView
+                    android:maxLines="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="0"
+                    android:textSize="40sp"
+                    android:id="@+id/tv_xianshi1"
+                    />
+                <TextView
+                    android:maxLines="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="0"
+                    android:textSize="40sp"
+                    android:id="@+id/tv_xianshi2"
+                    />
+            </LinearLayout>
 
-                />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:id="@+id/sp_1"
+                    android:entries="@array/jzList"
+                    />
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:id="@+id/sp_2"
+                    android:entries="@array/jzList"
+                    />
+
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -37,85 +79,11 @@
             >
 
             <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="长度换算"
-            android:id="@+id/btn_cdhuansuan"
-            android:textSize="30sp"
-            android:background="#ffffff"
-            android:layout_margin="1dp"
-            />
-
-            <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="体积换算"
-                android:id="@+id/btn_tjhuansuan"
-                android:textSize="30sp"
-                android:background="#ffffff"
-                android:layout_margin="1dp"
-                />
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="进制换算"
-                android:id="@+id/btn_jzhuansuan"
-                android:textSize="30sp"
-                android:background="#ffffff"
-                android:layout_margin="1dp"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            >
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="sin"
-                android:id="@+id/btn_sin"
-                android:textSize="30sp"
-                android:background="#ffffff"
-                android:layout_margin="1dp"
-                />
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="cos"
-                android:id="@+id/btn_cos"
-                android:textSize="30sp"
-                android:background="#ffffff"
-                android:layout_margin="1dp"
-                />
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="tan"
-                android:id="@+id/btn_tan"
-                android:textSize="30sp"
-                android:background="#ffffff"
-                android:layout_margin="1dp"
-                />
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="帮助"
-                android:id="@+id/btn_bangzhu"
+                android:text="数学计算"
+                android:id="@+id/btn_shuxuejisuan"
                 android:textSize="30sp"
                 android:background="#ffffff"
                 android:layout_margin="1dp"
@@ -133,41 +101,38 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="("
-                android:id="@+id/btn_kuohao1"
+                android:text="A"
+                android:id="@+id/btn_a"
                 android:textSize="40sp"
                 android:background="#ffffff"
                 android:layout_margin="1dp"
                 />
-
             <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text=")"
-                android:id="@+id/btn_kuohao2"
+                android:text="B"
+                android:id="@+id/btn_b"
                 android:textSize="40sp"
                 android:background="#ffffff"
                 android:layout_margin="1dp"
                 />
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="←"
-                android:id="@+id/btn_tui"
-                android:textSize="40sp"
-                android:background="#ffffff"
-                android:layout_margin="1dp"
-                />
-
             <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="C"
-                android:id="@+id/btn_c"
+                android:id="@+id/btn_cc"
+                android:textSize="40sp"
+                android:background="#ffffff"
+                android:layout_margin="1dp"
+                />
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="D"
+                android:id="@+id/btn_d"
                 android:textSize="40sp"
                 android:background="#ffffff"
                 android:layout_margin="1dp"
@@ -175,22 +140,23 @@
 
         </LinearLayout>
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             >
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="7"
-            android:id="@+id/btn_7"
-            android:textSize="40sp"
-            android:background="#ffffff"
-            android:layout_margin="1dp"
-            />
-        <Button
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="7"
+                android:id="@+id/btn_7"
+                android:textSize="40sp"
+                android:background="#ffffff"
+                android:layout_margin="1dp"
+                />
+            <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -198,28 +164,28 @@
                 android:id="@+id/btn_8"
                 android:textSize="40sp"
                 android:background="#ffffff"
-            android:layout_margin="1dp"
-            />
-         <Button
+                android:layout_margin="1dp"
+                />
+            <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="9"
                 android:id="@+id/btn_9"
                 android:textSize="40sp"
-             android:background="#ffffff"
-             android:layout_margin="1dp"
-             />
-         <Button
+                android:background="#ffffff"
+                android:layout_margin="1dp"
+                />
+            <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="÷"
-                android:id="@+id/btn_chu"
+                android:text="E"
+                android:id="@+id/btn_e"
                 android:textSize="40sp"
-             android:background="#ffffff"
-             android:layout_margin="1dp"
-          />
+                android:background="#ffffff"
+                android:layout_margin="1dp"
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -261,8 +227,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="×"
-                android:id="@+id/btn_cheng"
+                android:text="F"
+                android:id="@+id/btn_f"
                 android:textSize="40sp"
                 android:background="#ffffff"
                 android:layout_margin="1dp"
@@ -308,12 +274,13 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="-"
-                android:id="@+id/btn_jian"
+                android:text="C"
+                android:id="@+id/btn_c"
                 android:textSize="40sp"
                 android:background="#ffffff"
                 android:layout_margin="1dp"
                 />
+
         </LinearLayout>
 
         <LinearLayout
@@ -356,8 +323,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="+"
-                android:id="@+id/btn_jia"
+                android:text="←"
+                android:id="@+id/btn_tui"
                 android:textSize="40sp"
                 android:background="#ffffff"
                 android:layout_margin="1dp"
